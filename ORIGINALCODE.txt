@@ -1,0 +1,25 @@
+// Self-Lacing Motor
+const int IN1 = 7;   // L298N IN1
+const int IN2 = 8;   // L298N IN2
+const int ENA = 9;   // L298N ENA (PWM pin)
+
+// ----- Button pins -----
+const int BTN_FWD = 3;  // Forward button
+const int BTN_REV = 2;  // Reverse button
+
+// ----- Motor speed -----
+const int SPEED = 200;  // 0 to 255
+
+void setup() {
+  // Motor pins are outputs
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(ENA, OUTPUT);
+
+  // Button pins are inputs with pull-up resistors
+  pinMode(BTN_FWD, INPUT_PULLUP);
+  pinMode(BTN_REV, INPUT_PULLUP);
+
+  // Start with motor off
+  stopMotor();
+}
